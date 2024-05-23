@@ -1,0 +1,33 @@
+linearOddonacci(5) = 5, Time: 0.002625 ms
+multipleOddonacci(5) = 5, Time: 0.001042 ms
+
+linearOddonacci(10) = 105, Time: 0.002458 ms
+multipleOddonacci(10) = 105, Time: 0.0065 ms
+
+linearOddonacci(15) = 2209, Time: 0.003417 ms
+multipleOddonacci(15) = 2209, Time: 0.131333 ms
+
+linearOddonacci(20) = 46499, Time: 0.004416 ms
+multipleOddonacci(20) = 46499, Time: 0.270458 ms
+
+linearOddonacci(25) = 978793, Time: 0.00475 ms
+multipleOddonacci(25) = 978793, Time: 2.729416 ms
+
+linearOddonacci(30) = 20603361, Time: 0.005666 ms
+multipleOddonacci(30) = 20603361, Time: 50.521708 ms
+
+linearOddonacci(35) = 433695873, Time: 0.00725 ms
+multipleOddonacci(35) = 433695873, Time: 1064.079292 ms
+
+linearOddonacci(40) = 9129195487, Time: 0.008292 ms
+multipleOddonacci(40) = 9129195487, Time: 22324.032292 ms
+
+linearOddonacci(45) = 192167404461, Time: 0.009083 ms
+multipleOddonacci(45) = 192167404461, Time: 470860.686791 ms
+
+linearOddonacci(50) = 4045078385041, Time: 0.009667 ms
+multipleOddonacci(50) = 4045078385041, Time: 9866162.147042 ms
+
+linearOddonacci(55) = 8.5147942685809E13, Time: 0.009612 ms
+multipleOddonacci(55) = 8.5147942685809E13, Time: 1.339793891115E8 ms
+
