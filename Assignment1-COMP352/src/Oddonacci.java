@@ -1,30 +1,39 @@
+
+/** COMP352 - Assignment 1
+ * @author Brian Ly (40028072)
+ * @version 1.0
+ * 
+ * Oddonacci Sequence
+ * The Oddonacci sequence is a sequence where the numbers are the sum of the previous three numbers. The first three numbers are 1, 1, and 1.
+ * This program calculates the nth number in the Oddonacci sequence using three different methods: Linear Recursion, Multiple Recursion, and Tail Recursion.
+ */
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
-public class App {
+public class Oddonacci {
     public static void main(String[] args) {
 
         PrintWriter writer = null;
 
         try {
-            writer = new PrintWriter(new FileOutputStream("OddoOut.txt"), true);
-            for (int i = 1; i <= 40; i++) {
-                int index = i * 5;
+            writer = new PrintWriter(new FileOutputStream("OddoOut2.txt"), true);
+            for (int i = 5; i <= 200; i += 5) {
                 long startTime = System.nanoTime();
-                long[] resultLinear = linearOddonacci(index);
+                double[] resultLinear = linearOddonacci(i);
                 long endTime = System.nanoTime();
                 double timeElapsedLinear = (endTime - startTime) / 1000000.0; // Time in milliseconds
 
                 startTime = System.nanoTime();
-                long result = multipleOddonacci(index);
+                double result = multipleOddonacci(i);
                 endTime = System.nanoTime();
                 double timeElapsedMultiple = (endTime - startTime) / 1000000.0; // Time in milliseconds
 
                 writer.println(
-                        "linearOddonacci(" + index + ") = " + resultLinear[0] + ", Time: " + timeElapsedLinear + " ms");
+                        "linearOddonacci(" + i + ") = " + resultLinear[0] + ", Time: " + timeElapsedLinear + " ms");
                 writer.println(
-                        "multipleOddonacci(" + index + ") = " + result + ", Time: " + timeElapsedMultiple + " ms");
+                        "multipleOddonacci(" + i + ") = " + result + ", Time: " + timeElapsedMultiple + " ms");
                 writer.println();
 
             }
@@ -36,11 +45,18 @@ public class App {
     }
 
     // Linear Recursion
-    public static long[] linearOddonacci(int n) {
-        long[] A = new long[3]; // Array to store the Oddonacci numbers
-        long i = 0, j = 0, k = 0;
 
-        if (n <= 3) { // Base case
+    /**
+     * Calculate the nth Oddonacci number using linear recursion
+     * @param n
+     * @return array of long Oddonacci numbers
+     */
+    public static double[] linearOddonacci(int n) {
+        double[] A = new double[3]; // Array to store the Oddonacci numbers
+        double i = 0, j = 0, k = 0;
+        if (n == 0)
+            return null;
+        else if (n <= 3) { // Base case
             i = 1;
             j = 1;
             k = 1;
@@ -61,21 +77,45 @@ public class App {
     }
 
     // Multiple Recursion
+
+    /**
+     * Calculate the nth Oddonacci number using multiple recursion
+     * @param n
+     * @return Oddonacci number as a long
+     */
     public static long multipleOddonacci(int n) {
-        if (n <= 3) // Base case
+        if (n == 0)
+            return 0;
+        else if (n <= 3) // Base case
             return 1;
         else {
             return multipleOddonacci(n - 1) + multipleOddonacci(n - 2) + multipleOddonacci(n - 3);
         }
     }
 
-    // Tail Recursion
+    // Tail Recursion (Bonus)
+
+    /**
+     * Wrapper function to call the helper function
+     * @param n
+     * @return Oddonacci number as a long
+     */
     public static long tailOddonacci(int n) { // Wrapper function to call the helper function
         return tOddonacci(n, 1, 1, 1);
     }
 
+    /**
+     * Helper function to calculate the Oddonacci number
+     * @param n
+     * @param a first Oddonacci number
+     * @param b second Oddonacci number
+     * @param c third Oddonacci number
+     * @return Oddonacci number as a long
+     */
     public static long tOddonacci(int n, long a, long b, long c) { //Helper function to calculate the Oddonacci number
-        if (n <= 3) { // Base case
+        if (n == 0) {
+            return 0;
+        } else if (n <= 3) { // Base case
             return a;
         } else {
             return tOddonacci(n - 1, a + b + c, a, b);
